@@ -1,12 +1,17 @@
-import React from 'react'
-import Main from '../component/Main'
-import Row from '../component/Row'
+import React from 'react';
+import Main from '../component/Main';
+import Row from '../component/Row';
+import requests from '../Request';
 
 const Home = () => {
   return (
     <div>
         <Main />
-        <Row />
+        <Row title='Up coming' fetchURL={requests.requestUpcoming} />
+        <Row title='Popular' fetchURL={requests.requestPopular} />
+        <Row title='Trending' fetchURL={requests.requestTrending} />
+        <Row title='Top Rated' fetchURL={requests.requestTrending} />
+        <Row title='Horror' fetchURL={requests.requestHorror} />
     </div>
   )
 }
