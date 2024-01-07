@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 const Row = ({title, fetchURL}) => {
     const [movies, setmovies] = useState([])
 
+    const [like, setLike] = useState(false)
+
     useEffect(() => {
         axios.get(fetchURL).then((response) => {
             setmovies(response.data.results)
