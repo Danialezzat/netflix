@@ -12,7 +12,15 @@ const Row = ({title, fetchURL}) => {
             setmovies(response.data.results)
         })
     },[fetchURL])
-    console.log(movies)
+    
+    const slideLeft = () => {
+        var slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft - 500
+    }
+    const slideRight = () => {
+        var slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft + 500
+    }
 
 
 
@@ -21,13 +29,17 @@ const Row = ({title, fetchURL}) => {
     <>
         <h2 className='text-white font-bold md:text-xl p-4'>{title}</h2>
         <div className='relative flex items-center group'>
-            <MdChevronLeft size={40} className='bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' />
-            <div id={'Slider'} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
+            <MdChevronLeft 
+            onClick={slideLeft}
+            size={40} className='bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' />
+            <div id='slider' className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                 {movies.map((item, id) => (
                     <Movie key={id} item={item}/>
                 ))}
             </div>
-            <MdChevronRight size={40} className='bg-white right-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' />
+            <MdChevronRight 
+            onClick={slideRight}
+            size={40} className='bg-white right-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' />
         </div>
     </>
   )
