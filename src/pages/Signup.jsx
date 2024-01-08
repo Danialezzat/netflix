@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {UserAuth} from '../context/AthContext'
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {user, signUp} = UserAuth()
+  const navigate = useNavigate()
 
 
 
@@ -13,6 +14,7 @@ const Signup = () => {
     e.preventDefault();
     try{
       await signUp(email, password)
+      navigate('/')
     } catch (error) {
       console.log(error)
     }
@@ -31,8 +33,8 @@ const Signup = () => {
               <form 
                onSubmit={handleSubmit}
                className='w-full flex flex-col py-4'>
-                <input className='p-3 my-2 bg-gray-700 rounded' type="email"  placeholder='email...' autoComplete='email'/>
-                <input className='p-3 my-2 bg-gray-700 rounded' type="password" placeholder='password...' autoComplete='current-password'/>
+                <input onChange={(e) => setEmail(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type="email"  placeholder='email...' autoComplete='email'/>
+                <input onChange={(e) => setPassword(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type="password" placeholder='password...' autoComplete='current-password'/>
                 <button className='bg-red-600 py-3 my-6 rounded font-bold'>Sign Up</button>
 
 
