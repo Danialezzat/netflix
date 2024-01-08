@@ -10,6 +10,9 @@ const Login = () => {
   const navigate = useNavigate()
 
 
+  console.log(user)
+
+
 
   const handleSubmit =async (e) => {
     e.preventDefault();
