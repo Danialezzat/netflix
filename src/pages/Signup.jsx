@@ -9,7 +9,14 @@ const Signup = () => {
 
 
 
-  
+  const handleSubmit =async (e) => {
+    e.preventDefault();
+    try{
+      await signUp(email, password)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
