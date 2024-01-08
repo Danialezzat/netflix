@@ -14,8 +14,9 @@ const Signup = () => {
                 <input className='p-3 my-2 bg-gray-700 rounded' type="email"  placeholder='email...' autoComplete='email'/>
                 <input className='p-3 my-2 bg-gray-700 rounded' type="password" placeholder='password...' autoComplete='current-password'/>
                 <button className='bg-red-600 py-3 my-6 rounded font-bold'>Sign Up</button>
-                <div>
-                  
+                <div className='flex justify-between items-center text-sm text-gray-600'>
+                  <p><input className='mr-2' type="checkbox"/>Remember Me</p>
+                  <p>Need Help?</p>
                 </div>
               </form>
             </div>
