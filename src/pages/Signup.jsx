@@ -1,7 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import {UserAuth} from '../context/AthContext'
 
 const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const {user, signUp} = UserAuth()
+
+
+
+  
+
+
   return (
     <>
       <div className='w-full h-full '>
